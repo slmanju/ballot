@@ -1,0 +1,138 @@
+{
+	"variables": [],
+	"info": {
+		"name": "voter",
+		"_postman_id": "f740e87f-36c6-8713-43c9-4cf045cabd3e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Home",
+			"request": {
+				"url": "localhost:8080",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Voters - Register",
+			"request": {
+				"url": "localhost:8080/voters",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alias\": \"chooti\",\r\n    \"email\": \"chooti@gmail.com\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Voters - Get",
+			"request": {
+				"url": "localhost:8080/voters/cbda7dd5-1d9c-46f6-87b2-f25337c6657e",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Polls - Create",
+			"request": {
+				"url": "localhost:8080/polls",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"owner\": \"6c914587-a48d-492d-8edf-19560991b6e2\",\r\n    \"question\": \"What is the best programming language?\",\r\n    \"choices\": [\r\n        { \"choice\": \"Java\" },\r\n        { \"choice\": \"Go\" },\r\n        { \"choice\": \"Python\" }\r\n    ]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Polls - Get",
+			"request": {
+				"url": "localhost:8080/polls/1a82768f-e016-4923-abbe-a24647f1e5f0",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Votes - Create",
+			"request": {
+				"url": "localhost:8080/votes",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pollId\": \"f6bfac6a-8bb5-498c-a916-434fdf5a680c\",\r\n    \"choice\": \"Java\",\r\n    \"voter\": \"6c914587-a48d-492d-8edf-19560991b6e2\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Votes - Get",
+			"request": {
+				"url": "localhost:8080/votes/32f071ca-4aaa-441e-95af-c332c428f740",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Results - Get",
+			"request": {
+				"url": "localhost:8080/poll-results/f6bfac6a-8bb5-498c-a916-434fdf5a680c",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
