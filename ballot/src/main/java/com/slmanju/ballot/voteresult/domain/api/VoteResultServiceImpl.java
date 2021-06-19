@@ -16,10 +16,14 @@ public class VoteResultServiceImpl implements VoteResultService {
 
   private final VoteResultRepository voteResultRepository;
   private final PollRepository pollRepository;
+  private final WebsocketService websocketService; // TODO use events
 
   @Override
   public void vote(ResultVote vote) {
     voteResultRepository.saveVote(vote);
+
+    PollResult voteResult = findVoteResult(vote.getPollId());
+    websocketService.sendResult(voteResult);
   }
 
   @Override
