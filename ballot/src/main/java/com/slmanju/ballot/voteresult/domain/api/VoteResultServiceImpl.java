@@ -10,6 +10,7 @@ import com.slmanju.ballot.voteresult.domain.value.ResultVote;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
+import java.util.Objects;
 
 @AllArgsConstructor
 public class VoteResultServiceImpl implements VoteResultService {
@@ -34,15 +35,13 @@ public class VoteResultServiceImpl implements VoteResultService {
     PollResult pollResult = PollResult.emptyResult(poll);
 
     for (ResultVote vote : votes) {
-      String choice = vote.getChoice();
       List<ChoiceResult> choiceResults = pollResult.getChoiceResults();
       for (ChoiceResult choiceResult : choiceResults) {
-        if (choiceResult.getChoice().equals(choice)) {
-          choiceResult.setVotes(choiceResult.getVotes() + 1);
+        if (choiceResult.getChoice().equals(vote.getChoice())) {
+          choiceResult.increment();
         }
       }
     }
-
     return pollResult;
   }
 

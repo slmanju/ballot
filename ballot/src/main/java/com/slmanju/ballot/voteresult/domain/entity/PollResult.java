@@ -24,13 +24,7 @@ public class PollResult {
     pollResult.setPollId(poll.getId());
     pollResult.setOwner(poll.getOwner());
     pollResult.setQuestion(poll.getQuestion());
-
-    List<Choice> choices = poll.getChoices();
-    List<ChoiceResult> choiceResults = new ArrayList<>();
-    for (Choice choice : choices) {
-      choiceResults.add(new ChoiceResult(choice.getChoice(), 0));
-    }
-    pollResult.setChoiceResults(choiceResults);
+    pollResult.setChoiceResults(ChoiceResult.allZero(poll.getChoices()));
     return pollResult;
   }
 }
