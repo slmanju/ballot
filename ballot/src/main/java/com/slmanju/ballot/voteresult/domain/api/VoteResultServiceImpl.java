@@ -5,19 +5,19 @@ import com.slmanju.ballot.poll.domain.port.out.PollRepository;
 import com.slmanju.ballot.voteresult.domain.entity.PollResult;
 import com.slmanju.ballot.voteresult.domain.port.in.VoteResultService;
 import com.slmanju.ballot.voteresult.domain.port.out.VoteResultRepository;
+import com.slmanju.ballot.voteresult.domain.port.out.WebSocketService;
 import com.slmanju.ballot.voteresult.domain.value.ChoiceResult;
 import com.slmanju.ballot.voteresult.domain.value.ResultVote;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
-import java.util.Objects;
 
 @AllArgsConstructor
 public class VoteResultServiceImpl implements VoteResultService {
 
   private final VoteResultRepository voteResultRepository;
   private final PollRepository pollRepository;
-  private final WebsocketService websocketService; // TODO use events
+  private final WebSocketService websocketService;
 
   @Override
   public void vote(ResultVote vote) {
