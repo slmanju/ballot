@@ -4,8 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/**
+ * Vote in the vote-result sub domain.
+ */
 @Getter @NoArgsConstructor @AllArgsConstructor
-public class ResultVote {
+public class Vote {
 
   private String pollId;
   private String choice;

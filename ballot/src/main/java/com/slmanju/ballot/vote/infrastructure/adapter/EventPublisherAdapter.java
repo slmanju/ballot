@@ -11,11 +11,13 @@ import org.springframework.stereotype.Component;
 public class EventPublisherAdapter implements EventPublisher {
 
   private final VoteEventListener VoteEventListener; // Temp
+  private final VoteEventProducer voteEventProducer;
 
   @Override
   public void publishVoted(VotedEvent votedEvent) {
     System.out.println("Event fired....");
-    VoteEventListener.receiveVote(votedEvent);
+    VoteEventListener.onVote(votedEvent);
+    voteEventProducer.send(votedEvent);
   }
 
 }

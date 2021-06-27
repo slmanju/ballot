@@ -7,7 +7,7 @@ import com.slmanju.ballot.voteresult.domain.port.in.VoteResultService;
 import com.slmanju.ballot.voteresult.domain.port.out.VoteResultRepository;
 import com.slmanju.ballot.voteresult.domain.port.out.WebSocketService;
 import com.slmanju.ballot.voteresult.domain.value.ChoiceResult;
-import com.slmanju.ballot.voteresult.domain.value.ResultVote;
+import com.slmanju.ballot.voteresult.domain.value.Vote;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public class VoteResultServiceImpl implements VoteResultService {
   private final WebSocketService websocketService;
 
   @Override
-  public void vote(ResultVote vote) {
+  public void vote(Vote vote) {
     voteResultRepository.saveVote(vote);
 
     PollResult voteResult = findVoteResult(vote.getPollId());
@@ -29,12 +29,12 @@ public class VoteResultServiceImpl implements VoteResultService {
 
   @Override
   public PollResult findVoteResult(String pollId) {
-    List<ResultVote> votes = voteResultRepository.findAllById(pollId);
+    List<Vote> votes = voteResultRepository.findAllById(pollId);
     Poll poll = pollRepository.findById(pollId);
 
     PollResult pollResult = PollResult.emptyResult(poll);
 
-    for (ResultVote vote : votes) {
+    for (Vote vote : votes) {
       List<ChoiceResult> choiceResults = pollResult.getChoiceResults();
       for (ChoiceResult choiceResult : choiceResults) {
         if (choiceResult.getChoice().equals(vote.getChoice())) {

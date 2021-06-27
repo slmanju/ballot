@@ -1,13 +1,13 @@
 package com.slmanju.ballot.voteresult.domain.port.out;
 
-import com.slmanju.ballot.voteresult.domain.value.ResultVote;
+import com.slmanju.ballot.voteresult.domain.value.Vote;
 
 import java.util.List;
 
 public interface VoteResultRepository {
 
-  void saveVote(ResultVote vote);
+  void saveVote(Vote vote);
 
-  List<ResultVote> findAllById(String pollId);
+  List<Vote> findAllById(String pollId);
 
 }

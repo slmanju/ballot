@@ -2,8 +2,6 @@ package com.slmanju.ballot.voteresult.infrastructure.config;
 
 import com.slmanju.ballot.poll.domain.port.out.PollRepository;
 import com.slmanju.ballot.voteresult.domain.api.VoteResultServiceImpl;
-import com.slmanju.ballot.voteresult.domain.event.VoteEventReceiver;
-import com.slmanju.ballot.voteresult.domain.port.in.VoteEventListener;
 import com.slmanju.ballot.voteresult.domain.port.in.VoteResultService;
 import com.slmanju.ballot.voteresult.domain.port.out.VoteResultRepository;
 import com.slmanju.ballot.voteresult.domain.port.out.WebSocketService;
@@ -18,11 +16,6 @@ public class VoteResultConfiguration {
                                              PollRepository pollRepository,
                                              WebSocketService websocketService) {
     return new VoteResultServiceImpl(voteResultRepository, pollRepository, websocketService);
-  }
-
-  @Bean
-  public VoteEventListener voteEventListener(VoteResultService voteResultService) {
-    return new VoteEventReceiver(voteResultService);
   }
 
 }
