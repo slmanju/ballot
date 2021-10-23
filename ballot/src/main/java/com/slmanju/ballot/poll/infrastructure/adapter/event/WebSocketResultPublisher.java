@@ -1,4 +1,4 @@
-package com.slmanju.ballot.poll.infrastructure.websocket;
+package com.slmanju.ballot.poll.infrastructure.adapter.event;
 
 import com.slmanju.ballot.poll.domain.entity.PollResult;
 import com.slmanju.ballot.poll.domain.port.out.PollResultPublisher;
