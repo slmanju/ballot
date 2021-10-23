@@ -3,8 +3,8 @@ package com.slmanju.ballot;
 import com.slmanju.ballot.poll.domain.entity.Choice;
 import com.slmanju.ballot.poll.domain.entity.Poll;
 import com.slmanju.ballot.poll.domain.port.in.PollService;
-import com.slmanju.ballot.voter.domain.entity.Voter;
-import com.slmanju.ballot.voter.domain.port.in.VoterService;
+import com.slmanju.ballot.user.domain.entity.User;
+import com.slmanju.ballot.user.domain.port.in.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,17 +21,17 @@ public class VoterApplication implements CommandLineRunner {
 	}
 
 	@Autowired
-	private VoterService voterService;
+	private UserService userService;
 	@Autowired
 	private PollService pollService;
 
 	@Override
 	public void run(String... args) throws Exception {
-		String sokka = voterService.save(Voter.builder().alias("Sokka").email("sokka@atla.com").build());
-		String aang = voterService.save(Voter.builder().alias("Aang").email("aang@atla.com").build());
-		String katara = voterService.save(Voter.builder().alias("Katara").email("katara@atla.com").build());
-		String toph = voterService.save(Voter.builder().alias("Toph").email("toph@atla.com").build());
-		String zuko = voterService.save(Voter.builder().alias("Zuko").email("zuko@atla.com").build());
+		String sokka = userService.save(User.builder().alias("Sokka").email("sokka@atla.com").build());
+		String aang = userService.save(User.builder().alias("Aang").email("aang@atla.com").build());
+		String katara = userService.save(User.builder().alias("Katara").email("katara@atla.com").build());
+		String toph = userService.save(User.builder().alias("Toph").email("toph@atla.com").build());
+		String zuko = userService.save(User.builder().alias("Zuko").email("zuko@atla.com").build());
 
 		List<Choice> choices = Arrays.asList(
 				new Choice("Sokka"),
